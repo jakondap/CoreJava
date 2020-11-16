@@ -1,11 +1,15 @@
 package com.test;
 
 public class ShiftZeros {
-	static int arr[] = {2,15,30,0,15,20,0,35};
+	static int arr[] = {0,0,2,15,30,0,15,20,0,35,500,30,0};
 	static int pos =0;
 	public static void main(String[] args) {
 		
 		getMovePos();
+		for(int i=0;i<arr.length;i++) {
+			System.out.print(arr[i]+"\t");			
+		}
+		System.out.println();
 		
 		
 		
@@ -15,11 +19,7 @@ public class ShiftZeros {
 		for(int i = pos;i>0;i--) {
 			arr[i] = arr[i-1]; 
 		}
-		arr[0]= temp;
-		for(int i=0;i<arr.length;i++) {
-			System.out.print(arr[i]+"\t");			
-		}
-		System.out.println();
+		arr[0]= temp;		
 	}
 
 	private static void getMovePos() {
@@ -29,8 +29,8 @@ public class ShiftZeros {
 				rotateArr();
 			}			
 		}
-		if(arr.length == 0) {
-			pos = arr.length;
+		if(arr[arr.length-1] == 0) {
+			pos = arr.length-1;
 			rotateArr();
 		}
 	}
